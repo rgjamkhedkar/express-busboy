@@ -39,7 +39,7 @@ exports.extend = function(app, options) {
             if (options.upload) {
                 req.busboy.on('file', function(name, file, filename, encoding, mimetype) {
                     var fileUuid = uuid.v4(),
-                        out = path.join(options.path, '/', fileUuid, '/', name, filename);
+                        out = path.join(options.path, filename);
 
                     mkdirp.sync(path.dirname(out));
                     var writer = fs.createWriteStream(out);
